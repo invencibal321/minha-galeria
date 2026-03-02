@@ -12,9 +12,321 @@
     
 galeria do perugia
 
-<img src="https://noataque.com.br/wp-content/uploads/2025/12/FotoJet-20.jpg">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria do Perugia Calcio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1a1a2e;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        h1::after {
+            content: "⚽";
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        h1::before {
+            content: "⚽";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+            background: #fff;
+            border: 3px solid transparent;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            border-color: #ffd700;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px 15px 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .player-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #ffd700;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .player-number {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .player-position {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .team-info {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        .team-info p {
+            font-size: 1.1em;
+        }
+
+        .team-info span {
+            color: #ee0979;
+            font-size: 1.2em;
+        }
+
+        /* Cores do Perugia (Vermelho e Branco) */
+        .perugia-colors {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .color-stripe {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff0000, #ffffff);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .gallery {
+                gap: 15px;
+            }
+            
+            .overlay {
+                padding: 10px;
+            }
+            
+            .player-name {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Loading animation para imagens */
+        .gallery-item {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perugia Calcio</h1>
+        
+        <div class="gallery">
+            <!-- Linha 1 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=GK" alt="Goleiro Perugia">
+                <div class="overlay">
+                    <div class="player-name">Leandro Chichizola</div>
+                    <div class="player-number">#1</div>
+                    <div class="player-position">Goleiro</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ffffff/ff0000?text=DF" alt="Zagueiro Perugia">
+                <div class="overlay">
+                    <div class="player-name">Gabriele Angella</div>
+                    <div class="player-number">#4</div>
+                    <div class="player-position">Zagueiro</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=DF" alt="Lateral Perugia">
+                <div class="overlay">
+                    <div class="player-name">Filippo Sgarbi</div>
+                    <div class="player-number">#6</div>
+                    <div class="player-position">Lateral Direito</div>
+                </div>
+            </div>
+
+            <!-- Linha 2 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ffffff/ff0000?text=MF" alt="Meio-campo Perugia">
+                <div class="overlay">
+                    <div class="player-name">Salvatore Burrai</div>
+                    <div class="player-number">#8</div>
+                    <div class="player-position">Meio-campo</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=MF" alt="Volante Perugia">
+                <div class="overlay">
+                    <div class="player-name">Gregorio Luperini</div>
+                    <div class="player-number">#10</div>
+                    <div class="player-position">Meio-campo Ofensivo</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ffffff/ff0000?text=MF" alt="Meia Perugia">
+                <div class="overlay">
+                    <div class="player-name">Paolo Bartolomei</div>
+                    <div class="player-number">#14</div>
+                    <div class="player-position">Volante</div>
+                </div>
+            </div>
+
+            <!-- Linha 3 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=FW" alt="Atacante Perugia">
+                <div class="overlay">
+                    <div class="player-name">Federico Vázquez</div>
+                    <div class="player-number">#20</div>
+                    <div class="player-position">Atacante</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ffffff/ff0000?text=FW" alt="Atacante Perugia">
+                <div class="overlay">
+                    <div class="player-name">Christian Capone</div>
+                    <div class="player-number">#27</div>
+                    <div class="player-position">Ponta</div>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x400/ff0000/ffffff?text=FW" alt="Centroavante Perugia">
+                <div class="overlay">
+                    <div class="player-name">Alessandro Di Massimo</div>
+                    <div class="player-number">#32</div>
+                    <div class="player-position">Centroavante</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-info">
+            <p>⚽ <span>AC Perugia Calcio</span> ⚽</p>
+            <p>Serie B - Temporada 2024/25</p>
+            <div class="perugia-colors">
+                <div class="color-stripe"></div>
+                <div class="color-stripe"></div>
+                <div class="color-stripe"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 
 </body>
 </html>
